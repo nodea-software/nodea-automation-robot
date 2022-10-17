@@ -1,0 +1,56 @@
+.btn-info {
+  background-color: #0054a4;
+  border: none;
+}
+
+.btn-info:hover {
+  background-color: #006cd2;
+  color: #fff;
+  border: none;
+}
+
+
+.btn-success {
+  background-color: #55ce63;
+  border: none;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+  border: none;
+}
+
+body {
+
+  background: url('../img/bg-pattern.png')  
+}
+
+.btn-info {
+	color:  #fff;
+}
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 10rem;    /* Footer height */
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-wrapper {
+	text-align: center;	
+	color: #fff;
+  background: #0066ff;
+	padding: 1.5rem 0 1.5rem 0;
+}
+
+.row {
+	width: 100%;
+}

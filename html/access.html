@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>French Automation Robot</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/css/style.css">
+  </head>
+  <body>
+
+    <!-- All of the Node.js APIs are available in this renderer process. -->
+
+    <div id="page-container">
+      <div id="content-wrap">
+        <div class="content">
+          <div class="row">
+              <div class="col-xs-12" style="padding-top: 60px;">
+                <center>
+                  <img src="../assets/img/transparent_color.png" width="150px" />
+                    <h2><b>Configurer la connexion</b></h2><br>
+                </center>
+              </div>
+              <div data-field="id" class="col-xs-10 col-xs-offset-1">
+                  <div class="form-group">
+                      <label for="f_server"> ID Robot </label>
+                      <input class="form-control input" placeholder='' id="id" name="id" value="" type="text">
+                  </div>
+              </div>
+              <div data-field="f_server" class="col-xs-10 col-xs-offset-1">
+                  <div class="form-group">
+                      <label for="f_server"> Serveur </label>
+                      <input class="form-control input" placeholder='' id="f_server" name="f_server" value="" type="text">
+                  </div>
+              </div>
+              <div data-field="f_key" class="col-xs-5 col-xs-offset-1">
+                  <div class="form-group">
+                      <label for="f_key"> Clé </label>
+                      <input class="form-control input" placeholder='' id="f_key" name="f_key" value="" type="text">
+                  </div>
+              </div>
+              <div data-field="f_secret" class="col-xs-5">
+                  <div class="form-group">
+                      <label for="f_secret"> Code secret </label>
+                      <input class="form-control input" placeholder='' id="f_secret" name="f_secret" value="" type="password">
+                  </div>
+              </div>
+
+              <div data-field="f_pending" class="col-xs-5 col-xs-offset-1">
+                  <div class="form-group">
+                      <label for="f_pending"> ID du status "Pending" </label>
+                      <input class="form-control input" placeholder='' id="f_pending" name="f_processing" value="" type="number">
+                  </div>
+              </div>
+              <div data-field="f_processing" class="col-xs-5">
+                  <div class="form-group">
+                      <label for="f_processing"> ID du status "Processing" </label>
+                      <input class="form-control input" placeholder='' id="f_processing" name="f_processing" value="" type="number">
+                  </div>
+              </div>
+              <div data-field="f_failed" class="col-xs-5 col-xs-offset-1">
+                  <div class="form-group">
+                      <label for="f_failed"> ID du status "Failed" </label>
+                      <input class="form-control input" placeholder='' id="f_failed" name="f_failed" value="" type="number">
+                  </div>
+              </div>
+              <div data-field="f_done" class="col-xs-5">
+                  <div class="form-group">
+                      <label for="f_done"> ID du status "Done" </label>
+                      <input class="form-control input" placeholder='' id="f_done" name="f_done" value="" type="number">
+                  </div>
+              </div>
+              <div data-field="f_install_path" class="col-xs-5 col-xs-offset-1">
+                  <div class="form-group">
+                      <label for="f_install_path"> Chemin d'installation </label>
+                      <input class="form-control input" placeholder='' id="f_install_path" name="f_install_path" value="" type="text">
+                  </div>
+              </div>
+              <div data-field="f_autostart" class="col-xs-3">
+                  <div class="form-group">
+                      <label for="f_autostart"> Démarrage automatique </label>&nbsp;&nbsp;
+                      <input class="input" id="f_autostart" name="f_autostart" value="" type="checkbox">
+                  </div>
+              </div>
+              <div data-field="f_open_dev_tools" class="col-xs-3">
+                  <div class="form-group">
+                      <label for="f_open_dev_tools"> Console développeur </label>&nbsp;&nbsp;
+                      <input class="input" id="f_open_dev_tools" name="f_open_dev_tools" value="" type="checkbox">
+                  </div>
+              </div>
+              <div data-field="f_window_opened" class="col-xs-3">
+                  <div class="form-group">
+                      <label for="f_window_opened"> Conservation de session </label>&nbsp;&nbsp;
+                      <input class="input" id="f_window_opened" name="f_window_opened" value="" type="checkbox">
+                  </div>
+              </div>
+
+              <div class="col-xs-10 col-xs-offset-1">
+                  <div class="form-group">
+                      <button id="setConfig" class="btn btn-primary"> Sauvegarder </button>
+                      <button id="cancelConfig" class="btn btn-default"> Annuler </button>
+                  </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <footer id="footer">
+          <div class="red-line"></div>
+          <div class="white-line"></div>
+          <div class="blue-line"></div>
+          <div class="white-line"></div>
+          <div class="footer-wrapper">
+            <span>French Automation IT &trade; - Version v2.0.0</span>
+          </div>
+      </footer>
+    </div>
+    <script>
+      window.jQuery = window.$ = require("../assets/js/jquery.min.js");
+      const router = require('../assets/js/router.js');
+    </script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+
+      $("#setConfig").click(function () {
+
+        let installPath = document.getElementById('f_install_path').value;
+        installPath = installPath.replace(/\\/g, '/');
+
+        router.send('setConfig', {
+          id: document.getElementById('id').value,
+          back_host: document.getElementById('f_server').value,
+          clientKey: document.getElementById('f_key').value,
+          clientSecret: document.getElementById('f_secret').value,
+          idPending: document.getElementById('f_pending').value,
+          idProcessing: document.getElementById('f_processing').value,
+          idFailed: document.getElementById('f_failed').value,
+          idDone: document.getElementById('f_done').value,
+          autoStart: document.getElementById('f_autostart').checked,
+          installPath: installPath,
+          openDevTools: document.getElementById('f_open_dev_tools').checked,
+          windowOpened: document.getElementById('f_window_opened').checked
+        });
+      });
+
+      $("#cancelConfig").click(function () {
+        router.send('cancelConfig', {id: document.getElementById('id').value});
+      });
+
+    </script>
+  </body>
+</html>

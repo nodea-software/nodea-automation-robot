@@ -1,0 +1,92 @@
+{
+    "steps": [
+        {
+            "name": "Décryptage mot de passe",
+            "type": "sequence",
+            "snippet": "script_step_0.js"
+        },
+        {
+            "name": "Login",
+            "type": "action",
+            "startWith": {
+                "url": "https://app.trackdechets.beta.gouv.fr/login",
+                "method": "get"
+            },
+            "snippet": "script_step_1.js",
+            "delay": 2000
+        },
+        {
+            "name": "Submit login form",
+            "type": "action",
+            "snippet": "script_step_2.js",
+            "endWith": {
+                "url": "https://app.trackdechets.beta.gouv.fr/dashboard/75113994000025/bsds/drafts",
+                "method": "get"
+            },
+            "delay": 2000
+        },
+        {
+            "name": "Reviews",
+            "type": "action",
+            "snippet": "script_step_3.js",
+            "endWith": {
+                "url": "https://app.trackdechets.beta.gouv.fr/dashboard/75113994000025/bsds/review",
+                "method": "GET"
+            },
+            "delay": 2000
+        },
+        {
+            "name": "Extract buttons to click",
+            "type": "action",
+            "snippet": "script_step_4.js",
+            "delay": 3000
+        },
+        {
+            "name": "Boucle",
+            "type": "sequence",
+            "snippet": "script_step_5.js",
+            "delay": 1000
+        },
+        {
+            "name": "Click button",
+            "type": "action",
+            "snippet": "script_step_6.js",
+            "delay": 1000
+        },
+        {
+            "name": "Submit form",
+            "type": "action",
+            "snippet": "script_step_7.js",
+            "delay": 1000
+        },
+        {
+            "name": "Fin de boucle",
+            "type": "sequence",
+            "snippet": "script_step_8.js"
+        },
+        {
+            "name": "Logout",
+            "type": "action",
+            "snippet": "script_step_9.js",
+            "endWith": {
+                "url": "https://app.trackdechets.beta.gouv.fr/login",
+                "method": "get"
+            },
+            "delay": 1000
+        },
+        {
+            "name": "Update request",
+            "type": "sequence",
+            "snippet": "script_step_10.js",
+            "delay": 1000
+        }
+    ],
+    "onError": [
+        {
+            "name": "Error",
+            "type": "sequence",
+            "snippet": "script_step_11.js",
+            "delay": 10000
+        }
+    ]
+}
