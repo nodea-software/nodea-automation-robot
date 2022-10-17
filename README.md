@@ -1,5 +1,4 @@
 # Nodea Software - Automation Robot
-RPA Open Source
 
 ## Overview
 Nodea Software - Automation Robot - is an Open Source RPA / RDA software suite based on :
@@ -18,7 +17,7 @@ Nodea Software - Automation Robot - is an Open Source RPA / RDA software suite b
 <br/>
 
 ## Installation
-<p>Please refer to installation instructions and prerequisites on our Website : <a href="https://docs.nodea-software.com/en/developer/automation" rel="nofollow"https://docs.nodea-software.com/en/developer/automation</a></p>
+Please refer to installation instructions and prerequisites in [Developer documentation](https://docs.nodea-software.com/en/developer/automation)
 
 ## Licenses
 French Automation is released under the [GNU General Public License version 3](http://opensource.org/licenses/GPL-3.0) license.
