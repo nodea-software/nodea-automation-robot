@@ -30,7 +30,7 @@ function createWindow () {
             contextIsolation: false,
             enableRemoteModule: false
         },
-        icon: __dirname + '/assets/img/logo_fa.png'
+        icon: __dirname + '/assets/img/transparent_color.png'
     })
 
     mainWindow.maximize();
