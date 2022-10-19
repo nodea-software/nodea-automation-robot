@@ -1,17 +1,20 @@
 module.exports = {
 	execute: async utils => {
-		
-		console.log(utils.sessionData);
-		
-		if (utils.sessionData.compteur) {
-			if (utils.sessionData.compteur >= utils.sessionData.count_buttons) {
-				utils.sessionData.goToStep = 10;
-			}
-		}
-		else {
-			utils.sessionData.compteur = 0;
-		}
-		
-		console.log(utils.sessionData.compteur);
+		return new Promise((resolve, reject) => {
+
+			// Clean sensitive session data
+			utils.sessionData.f_password_decrypte = null;
+
+			// Update server entity
+			let form = {
+				r_statut: 11
+			};
+
+			utils.api.call({
+				url: '/api/entreprise/' + utils.env.id_entreprise,
+				method: 'put',
+				form: form
+			}).then(resolve).catch(reject);
+		});
 	}
 }

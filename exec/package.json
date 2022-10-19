@@ -1,7 +1,7 @@
 {
-  "name": "french-automation-robot",
+  "name": "nodea-automation-robot",
   "version": "1.0.0",
-  "description": "French Automation Robot - Electron application",
+  "description": "Nodea Automation Robot - Electron application",
   "main": "program.js",
   "scripts": {
     "start": "node ."

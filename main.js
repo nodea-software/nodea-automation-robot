@@ -49,8 +49,8 @@ function createWindow () {
     robot.mainWindow = mainWindow;
 
     // Check if config path and file exist
-    if (!fs.existsSync(app.getPath("appData") + '/french-automation-robot/config/credentials.json')) {
-        fs.mkdirSync(app.getPath("appData") + '/french-automation-robot/config', {recursive: true});
+    if (!fs.existsSync(app.getPath("appData") + '/nodea-automation-robot/config/credentials.json')) {
+        fs.mkdirSync(app.getPath("appData") + '/nodea-automation-robot/config', {recursive: true});
         const credentialsTempalte = {
             "method": "post",
             "action": "setConfig",
@@ -68,12 +68,12 @@ function createWindow () {
         }
         credentialsTempalte.installPath = process.platform == 'win32'
             ? __dirname
-            : "/opt/node/french-automation-robot";
-        fs.writeFileSync(app.getPath("appData") + '/french-automation-robot/config/credentials.json', JSON.stringify(credentialsTempalte, null, 4), 'utf8');
+            : "/opt/node/nodea-automation-robot";
+        fs.writeFileSync(app.getPath("appData") + '/nodea-automation-robot/config/credentials.json', JSON.stringify(credentialsTempalte, null, 4), 'utf8');
     }
     else {
         // Autostart robot if configured
-        const rawConfig = fs.readFileSync(app.getPath("appData") + '/french-automation-robot/config/credentials.json');
+        const rawConfig = fs.readFileSync(app.getPath("appData") + '/nodea-automation-robot/config/credentials.json');
         if (rawConfig && rawConfig !== '') {
             const { autoStart, installPath, openDevTools, windowOpened } = JSON.parse(rawConfig);
 
@@ -85,7 +85,7 @@ function createWindow () {
 
             if (windowOpened) robot.keepSession = true;
 
-            // Set temp folder according to config file : "/opt/node/french-automation-robot" or "C://french-automation-robot-win32-x64"
+            // Set temp folder according to config file : "/opt/node/nodea-automation-robot" or "C://nodea-automation-robot-win32-x64"
             console.log("Install Path : " + installPath);
             if ((installPath) && (installPath != ""))  {
                 app.setPath("temp", installPath);
@@ -99,7 +99,7 @@ function createWindow () {
         fs.mkdirSync(app.getPath("temp") + '/exec', {recursive: true});
         fs.mkdirSync(app.getPath("temp") + '/exec/downloads', {recursive: true});
         fs.mkdirSync(app.getPath("temp") + '/exec/program', {recursive: true});
-        // fs.copyFileSync(__dirname + '/../french-automation-robot/exec/package.json',app.getPath("temp") + '/french-automation-robot/exec/package.json');
+        // fs.copyFileSync(__dirname + '/../nodea-automation-robot/exec/package.json',app.getPath("temp") + '/nodea-automation-robot/exec/package.json');
     }
 
 
@@ -159,7 +159,7 @@ ipcMain.on('synchronous-message', (event, arg) => {
             case 'access':
                 mainWindow.loadFile(__dirname + '/html/access.html');
                 try {
-                    const rawConfig = fs.readFileSync(app.getPath("appData") + '/french-automation-robot/config/credentials.json');
+                    const rawConfig = fs.readFileSync(app.getPath("appData") + '/nodea-automation-robot/config/credentials.json');
                     if (rawConfig && rawConfig !== '') {
                         const {
                             id,
@@ -208,7 +208,7 @@ ipcMain.on('synchronous-message', (event, arg) => {
                 mainWindow.loadFile(__dirname + '/html/running.html')
                 mainWindow.webContents.executeJavaScript(`document.getElementById("id").innerHTML = "${robot.id}";`);
 
-                const rawConfig = fs.readFileSync(app.getPath("appData") + '/french-automation-robot/config/credentials.json');
+                const rawConfig = fs.readFileSync(app.getPath("appData") + '/nodea-automation-robot/config/credentials.json');
                 if (rawConfig && rawConfig !== '') {
                     const { windowOpened } = JSON.parse(rawConfig);
                     robot._keepSession = windowOpened;
@@ -231,7 +231,7 @@ ipcMain.on('synchronous-message', (event, arg) => {
 
             case 'setConfig':
                 // Store server config
-                fs.writeFileSync(app.getPath("appData") + '/french-automation-robot/config/credentials.json', JSON.stringify(arg, null, 4));
+                fs.writeFileSync(app.getPath("appData") + '/nodea-automation-robot/config/credentials.json', JSON.stringify(arg, null, 4));
 
                 mainWindow.loadFile(__dirname + '/html/index.html')
                 mainWindow.webContents.executeJavaScript(`document.getElementById("id").innerHTML = "${arg.id}";`);

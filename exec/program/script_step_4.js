@@ -1,10 +1,20 @@
-(_ => {
-	
-	let data = {};
-	data.count_buttons = document.getElementsByClassName("btn--primary").length;
-	
-	alert(data.count_buttons);
-	return data;
+module.exports = {
+	execute: async utils => {
+		return new Promise((resolve, reject) => {
 
+			// Clean sensitive session data
+			utils.sessionData.f_password_decrypte = null;
 
-})();
+			// Update server entity
+			let form = {
+				r_statut: 10
+			};
+
+			utils.api.call({
+				url: '/api/entreprise/' + utils.env.id_entreprise,
+				method: 'put',
+				form: form
+			}).then(resolve).catch(reject);
+		});
+	}
+}

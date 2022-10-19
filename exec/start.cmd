@@ -1,2 +1,2 @@
 @ECHO OFF 
-START ../french-automation-robot.exe > ./console.log
+START ../nodea-automation-robot.exe > ./console.log
